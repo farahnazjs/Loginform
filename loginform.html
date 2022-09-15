@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    
+</head>
+<body>
+    <div class="main">
+        <div class="title">
+            <div class="title1 login">Login Form</div>
+            <div class="title1 singup">Signup Form</div>
+        </div>
+        <div class="form">
+            <div class="slidecon">
+                <input type="radio" name="slider" id="login" checked>
+                <input type="radio" name="slider" id="signup">
+                <label for="login" class="slide login" >Login</label>
+                <label for="signup" class="slide signup" >Signup</label>
+                <div class="slide_t"></div>
+            </div>
+            <div class="form-content">
+                <form action="#'" class="login" method="get" >
+                    <div class="input">
+                        <input type="text" name="" id="" placeholder="Email Address" required >
+                    </div>
+                    <div class="input">
+                        <input type="password" placeholder="Password " name="" >
+                    </div>
+                    <div class="pass"><a href="#">Forget password?</a></div>
+                    <div class="input btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Login">
+                    </div>
+                    <div  class="signup_l">Not a member?<a href="">Signup now</a></div>
+                </form>
+                <form action="req.php" class="signup" name="req" onsubmit="return _mayauth()">
+                    <div class="input">
+                        <input type="text" name="email"  placeholder="Email Address" >
+                        <span id="email"></span>
+                    </div>
+                    <div class="input">
+                        <input type="password" placeholder="Password " name="pass">
+                        <span id="pass"></span>
+                    </div>
+                    <div class="input">
+                        <input type="password" placeholder="Confirm password " name="confirm" >
+                        <span id="confirm"></span>
+                    </div>
+                    
+                    <div class="input btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Signup">
+                    </div>
+                    
+                </form>
+            </form>
+            </div>
+        </div>
+    </div>
+    <script>
+ 
+         let loginForm = document.querySelector("form.login");
+         let loginBtn = document.querySelector("label.login");
+         let signupBtn = document.querySelector("label.signup");
+         let signupLink = document.querySelector(".signup_l a");
+         let loginText = document.querySelector(".title .login");
+
+
+         signupBtn.addEventListener('click',()=>{
+            loginForm.style.marginLeft='-50%'
+            loginText.style.marginLeft = "-50%";
+         })
+         loginBtn.addEventListener('click',()=>{
+            loginForm.style.marginLeft='0%'
+            loginText.style.marginLeft = "0%";
+         })
+        signupLink.onclick = (function(){
+           signupBtn.click();
+           return false;
+         });
+
+
+         function _mayauth(){
+            let _email= document.forms['req']['email'].value
+            let _pass= document.forms['req']['pass'].value
+            let _confirm= document.forms['req']['confirm'].value
+            let flag=0
+
+
+            if(
+                (((_email.match(/@/g))) == null) ||
+                (((_email.match(/@/g)).length) != 1) ||
+                ((_email.search(/@/)) < 3) ||
+                (((_email.search(/@/))+6) >= (_email.length)) ||
+                (((_email.indexOf('.', (_email.search(/@/))))-3) <= (_email.search(/@/)))
+
+            ){
+                document.getElementById('email').innerHTML='your mail is inccorect'
+                document.getElementById('email').style.color='red'
+                flag++
+            }else{
+                document.getElementById('email').innerHTML='your mail is successfull'
+                document.getElementById('email').style.color='green'
+            }
+
+            if(
+                ((_pass.search(/[~!@#$%^&*()_+|?>]/)) == -1) ||
+                (_pass.length<8) ||
+                ((_pass.search[/A-Z/]) == -1)
+            ){
+                document.getElementById('pass').innerHTML='your pass is inccorect'
+                document.getElementById('pass').style.color='red'
+                flag++
+            }else{
+                document.getElementById('pass').innerHTML='your pass is successfull'
+                document.getElementById('pass').style.color='green'
+            }
+        
+            if(
+                (_pass !== _confirm)||
+                (_confirm==0)
+            ){
+                document.getElementById('confirm').innerHTML='your pass is not match'
+                document.getElementById('confirm').style.color='red'
+                flag++
+            }else{
+                document.getElementById('confirm').innerHTML='your pass is successfull'
+                document.getElementById('confirm').style.color='green'
+            }
+         }
+
+    </script>
+</body>
+</html>

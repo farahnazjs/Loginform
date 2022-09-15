@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(img42/pexels-anni-roenkae-2156881.jpg);
+    background-size: cover;
+     background-color: #f2f2f2; 
+
+}
+.main{
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.339);
+    overflow: hidden;
+}
+.title{
+    display: flex;
+    width: 200%;
+}
+.main>.title>.title1{
+    width: 50%;
+    font-size: 30px;
+    font-weight: 550;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.65,-0.55,0.260,1.55); 
+}
+.form{
+    width: 100%;
+    overflow: hidden; 
+}
+.form>.slidecon{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid rgb(45, 54, 105);
+    margin: 30px 0 10px 0;
+    overflow: hidden;
+    position: relative;
+}
+.form>.slidecon>.slide{
+    width: 100%;
+    height: 100%;
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 49px;
+    cursor: pointer;
+    z-index: 1;
+    color: white;
+}
+.form>.slidecon .signup{
+    color: black;
+}
+.form>.slidecon>.slide_t{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    border: 5px;
+    left: 0;
+    z-index: 0;
+    background:-webkit-linear-gradient(left,#c294f0,#380d5c); ;
+    transition: all 0.5s cubic-bezier(0.65,-0.55,0.260,1.55);
+    border-radius: 5px;
+}
+#signup:checked ~ .slide_t{
+ left: 50%;
+}
+input[type='radio']{
+    display: none;
+}
+#signup:checked ~ .signup{
+    color: white;
+}
+#signup:checked ~ .login{
+    color: black;
+}
+
+.form>.form-content{
+    display: flex;
+    width: 200%;
+}
+.form>.form-content form{
+    width: 50%;
+    transition: all 0.5s cubic-bezier(0.65,-0.55,0.260,1.55);  
+}
+.form>.form-content>form>.input{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+}
+.form>.form-content>form>.input>input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding-left: 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid rgb(45, 54, 105);
+    border-bottom-width:2px ;
+    transition: all 0.4s ease;
+}
+.form>.form-content>form>.input>input:focus{
+    border-color: #80f7f5;
+}
+.form-content>form>.pass{
+    margin-top: 5px;
+}
+.form-content>form>.signup_l{
+    margin-top: 30px;
+    text-align: center;
+}
+.form-content>form>.pass>a,
+.form-content>form>.signup_l>a{
+    text-decoration: none;
+    color: #80f7f5;
+    ;
+}
+.form-content>form>.pass>a:hover,
+.form-content>form>.signup_l>a:hover{
+    text-decoration: underline;
+}
+form>.input input[type='submit']{
+    background: -webkit-linear-gradient(left,#c294f0,#380d5c);
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    padding-left: 0px;
+    border: none;
+    cursor: pointer;
+}
+form .btn{
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+  form .btn .btn-layer{
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    background: -webkit-linear-gradient(right, #a445b2, #fa4299,#c294f0,#380d5c, #a445b2, #fa4299);
+    border-radius: 5px;
+    transition: all 0.4s ease;;
+  }
+  form .btn:hover .btn-layer{
+    left: 0;
+  }
+  form .btn input[type="submit"]{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    background: none;
+    border: none;
+    color: #fff;
+    padding-left: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
